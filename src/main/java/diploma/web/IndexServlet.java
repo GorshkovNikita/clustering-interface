@@ -1,4 +1,4 @@
-package diploma;
+package diploma.web;
 
 import diploma.statistics.MacroClusteringStatistics;
 import diploma.statistics.dao.MacroClusteringStatisticsDao;

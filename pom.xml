@@ -27,5 +27,23 @@
         </dependency>
 
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <url>http://localhost:8080/manager/text</url>
+                    <!--<username>admin</username>-->
+                    <!--<password>admin</password>-->
+                    <server>apache-tomcat-7.0.77</server>
+                    <!-- По пути path приложение появляется ТОЛЬКО при деплое через tomcat7:deploy -->
+                    <path>/</path>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 
 </project>

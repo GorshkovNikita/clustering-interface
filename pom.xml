@@ -50,7 +50,7 @@
                     <!--<password>admin</password>-->
                     <server>apache-tomcat-7.0.77</server>
                     <!-- По пути path приложение появляется ТОЛЬКО при деплое через tomcat7:deploy -->
-                    <path>/</path>
+                    <path>/statistics</path>
                 </configuration>
             </plugin>
         </plugins>

@@ -1,9 +1,26 @@
+.container {
+    width: 1200px;
+    margin: auto;
+}
+
 .chart {
     width: 500px;
     height: 500px;
-    float: left;
+    clear: both;
+}
+
+.info {
+    clear: both;
 }
 
 #tweet {
+    float: left;
+}
+
+.buttons {
+    float: left;
+}
+
+.top-terms {
     float: left;
 }

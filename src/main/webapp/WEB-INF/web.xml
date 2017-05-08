@@ -13,5 +13,14 @@
         <url-pattern>/statistics</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>stat</servlet-name>
+        <servlet-class>diploma.web.StatServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>stat</servlet-name>
+        <url-pattern>/stat/*</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>

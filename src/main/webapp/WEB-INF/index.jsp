@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -11,9 +12,16 @@
 </head>
 <body>
     <div class="container">
+        <fmt:formatNumber var="duration" value="${generalStatistics.duration / (60 * 1000)}" maxFractionDigits="1" />
         <h1>Статистика кластеризации</h1>
+        <p>
+            Начало кластеризации: ${generalStatistics.startTime}
+            Конец кластеризации: ${generalStatistics.endTime}
+            Продолжительность: ${duration} минут
+            Твитов обработано: ${generalStatistics.numberOfTweets}
+        </p>
         <c:forEach items="${statistics}" var="entry">
-            <div class="buttons">
+            <div class="button">
                 <span>${entry.value.numberOfDocuments} твитов</span><br>
                 <button onclick="getStat(${entry.value.id})">Кластер №${entry.value.clusterId}</button><br>
             </div>
@@ -21,7 +29,6 @@
         <div class="info">
             <div id="tweet"></div>
             <ul class="top-terms"></ul>
-
             <div class="chart">
                 <canvas id="myChart" width="400" height="400"></canvas>
             </div>

@@ -52,26 +52,3 @@ var getStat = function(id) {
         }
     });
 };
-
-//getStat(20421);
-
-//$(function () {
-//    for (var i = 0; i < statistics.length; i++) {
-//        twttr.widgets.createTweet(
-//            statistics[i][statistics[i].length - 1].mostRelevantTweetId,
-//            document.getElementById('tweet')
-//        ).then(function (el) {
-//            var list = document.createElement('ul');
-//            for (var j = 0; j < statistics[i][statistics[i].length - 1].topTerms.length; j++) {
-//                var term = document.createElement('li');
-//                term.innerHTML = statistics[i][statistics[i].length - 1].topTerms[j].term;
-//                list.appendChild(term);
-//            }
-//            document.getElementById('tweet').appendChild(list);
-//        });
-//
-//    }
-//});
-
-// https://publish.twitter.com/oembed?url=https://twitter.com/Interior/status/463440424141459460&callback=jQuery32107641807255600463_1494073507714&_=1494073507715
-// https://publish.twitter.com/oembed?url=https://twitter.com/Interior/status/463440424141459456&callback=jQuery32109392063963222899_1494073586040&_=1494073586041

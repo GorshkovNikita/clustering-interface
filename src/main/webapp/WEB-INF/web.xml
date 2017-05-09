@@ -22,5 +22,13 @@
         <url-pattern>/stat/*</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>manual</servlet-name>
+        <servlet-class>diploma.web.ManualClusteringServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>manual</servlet-name>
+        <url-pattern>/manual</url-pattern>
+    </servlet-mapping>
 
 </web-app>

@@ -28,6 +28,22 @@
     width: 125px;
 }
 
-.top-terms {
+.table {
+    display: table;
     float: left;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.row {
+    display: table-row;
+}
+
+.cell {
+    display: table-cell;
+    width: 140px;
+    text-align: center;
+    border: 1px solid #62b7ff;
+    background-color: #92dbff;
+    padding: 5px;
 }

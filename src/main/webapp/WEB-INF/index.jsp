@@ -28,7 +28,7 @@
         </c:forEach>
         <div class="info">
             <div id="tweet"></div>
-            <ul class="top-terms"></ul>
+            <div class="table"></div>
             <div class="chart">
                 <canvas id="myChart" width="400" height="400"></canvas>
             </div>

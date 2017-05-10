@@ -6,12 +6,12 @@ var getStat = function(id) {
         dataType: 'json',
         success: function (data) {
             displayTweet(data.statistics.mostRelevantTweetId);
-            var list = document.getElementsByClassName('top-terms')[0];
+            var list = document.getElementsByClassName('table')[0];
             list.innerHTML = '';
             for (var property in data.statistics.topTerms) {
                 if (data.statistics.topTerms.hasOwnProperty(property)) {
-                    var term = document.createElement('li');
-                    term.innerHTML = property;
+                    var term = document.createElement('div');
+                    term.innerHTML = '<div class="row"><div class="cell">' + property + '</div><div class="cell">' + data.statistics.topTerms[property] + '</div></div>';
                     list.appendChild(term);
                 }
             }

@@ -1,6 +1,7 @@
 package diploma.web;
 
 import com.google.gson.Gson;
+import diploma.clustering.MapUtil;
 import diploma.statistics.MacroClusteringStatistics;
 import diploma.statistics.TimeAndProcessedPerUnit;
 import diploma.statistics.dao.MacroClusteringStatisticsDao;
@@ -46,6 +47,7 @@ public class StatServlet extends HttpServlet {
 //        req.getRequestDispatcher("WEB-INF/index.jsp").forward(req, resp);
 
         MacroClusteringStatistics statistics = macroClusteringStatisticsDao.getMacroClusteringStatistics(id);
+        statistics.setTopTerms(MapUtil.sortByValue(statistics.getTopTerms()));
         List<TimeAndProcessedPerUnit> timeAndProcessedPerUnitList = macroClusteringStatisticsDao.getTimeAndProcessedPerUnitList(statistics.getClusterId());
         StatResponse response = new StatResponse(statistics, timeAndProcessedPerUnitList);
         String json = new Gson().toJson(response);

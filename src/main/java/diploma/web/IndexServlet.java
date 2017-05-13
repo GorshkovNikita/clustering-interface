@@ -30,6 +30,7 @@ public class IndexServlet extends HttpServlet {
         GeneralStatistics generalStatistics = macroClusteringStatisticsDao.getGeneralStatistics();
         req.setAttribute("statistics", statistics);
         req.setAttribute("generalStatistics", generalStatistics);
+        req.setAttribute("numberOfClusters", statistics.entrySet().size());
         req.getRequestDispatcher("WEB-INF/index.jsp").forward(req, resp);
     }
 

@@ -15,22 +15,26 @@
         <fmt:formatNumber var="duration" value="${generalStatistics.duration / (60 * 1000)}" maxFractionDigits="1" />
         <h1>Статистика кластеризации</h1>
         <p>
-            Начало кластеризации: ${generalStatistics.startTime}
-            Конец кластеризации: ${generalStatistics.endTime}
-            Продолжительность: ${duration} минут
-            Твитов обработано: ${generalStatistics.numberOfTweets}
+            Начало кластеризации: ${generalStatistics.startTime}.
+            Конец кластеризации: ${generalStatistics.endTime}.
+            Продолжительность: ${duration} минут.
+            Твитов обработано: ${generalStatistics.numberOfTweets}.
+            Количество найденных кластеров: ${numberOfClusters}.
         </p>
         <c:forEach items="${statistics}" var="entry">
-            <div class="button">
-                <span>${entry.value.numberOfDocuments} твитов</span><br>
-                <button onclick="getStat(${entry.value.id})">Кластер №${entry.value.clusterId}</button><br>
-            </div>
+            <c:if test="${entry.value.clusterId != 0}">
+                <div class="button">
+                    <span>${entry.value.numberOfDocuments} твитов</span><br>
+                    <button onclick="getStat(${entry.value.id})">Кластер №${entry.value.clusterId}</button><br>
+                </div>
+            </c:if>
         </c:forEach>
         <div class="info">
+            <h2 class="tweet-header"></h2>
             <div id="tweet"></div>
             <div class="table"></div>
             <div class="chart">
-                <canvas id="myChart" width="400" height="400"></canvas>
+                <canvas id="myChart" width="500" height="200"></canvas>
             </div>
         </div>
     </div>

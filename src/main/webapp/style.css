@@ -1,12 +1,18 @@
 .container {
-    width: 1200px;
+    width: 1400px;
     margin: auto;
 }
 
 .chart {
     width: 500px;
-    height: 500px;
-    clear: both;
+    height: 200px;
+    float: left;
+    padding-left: 20px;
+}
+
+.tweet-header {
+    padding-top: 20px;
+    text-align: center;
 }
 
 .info {

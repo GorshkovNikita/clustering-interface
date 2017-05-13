@@ -8,6 +8,10 @@ var getStat = function(id) {
             displayTweet(data.statistics.mostRelevantTweetId);
             var list = document.getElementsByClassName('table')[0];
             list.innerHTML = '';
+
+            var tweetHeader = document.getElementsByClassName('tweet-header')[0];
+            tweetHeader.innerHTML = 'Кластер №' + data.statistics.clusterId + '. Количество твитов = ' + data.statistics.numberOfDocuments;
+
             for (var property in data.statistics.topTerms) {
                 if (data.statistics.topTerms.hasOwnProperty(property)) {
                     var term = document.createElement('div');

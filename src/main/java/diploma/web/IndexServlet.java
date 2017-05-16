@@ -3,6 +3,7 @@ package diploma.web;
 import com.google.gson.Gson;
 import diploma.statistics.GeneralStatistics;
 import diploma.statistics.MacroClusteringStatistics;
+import diploma.statistics.TimeAndProcessedPerUnit;
 import diploma.statistics.dao.MacroClusteringStatisticsDao;
 
 import javax.servlet.ServletException;
@@ -28,6 +29,14 @@ public class IndexServlet extends HttpServlet {
         Map<Integer, MacroClusteringStatistics> statistics = macroClusteringStatisticsDao.getMacroClusteringStatistics();
         statistics = sortStatistics(statistics);
         GeneralStatistics generalStatistics = macroClusteringStatisticsDao.getGeneralStatistics();
+//        Map<Integer, List<TimeAndProcessedPerUnit>> mapOfTimeAndProcessedPerUnitList = new HashMap<>();
+        List<Integer> removalList = new ArrayList<>();
+        for (Map.Entry<Integer, MacroClusteringStatistics> statistic: statistics.entrySet())
+            if (macroClusteringStatisticsDao.getTimeAndProcessedPerUnitList(statistic.getKey()).size() <= 4)
+                removalList.add(statistic.getKey());
+        for (Integer removalId: removalList) {
+            statistics.remove(removalId);
+        }
         req.setAttribute("statistics", statistics);
         req.setAttribute("generalStatistics", generalStatistics);
         req.setAttribute("numberOfClusters", statistics.entrySet().size());

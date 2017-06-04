@@ -20,6 +20,7 @@
             Продолжительность: ${duration} минут.
             Твитов обработано: ${generalStatistics.numberOfTweets}.
             Количество найденных кластеров: ${numberOfClusters}.
+            Количество кластеризованных документов: ${numberOfClusteredTweets}.
         </p>
         <c:forEach items="${statistics}" var="entry">
             <c:if test="${entry.value.clusterId != 0}">

@@ -30,15 +30,22 @@ public class IndexServlet extends HttpServlet {
         statistics = sortStatistics(statistics);
         GeneralStatistics generalStatistics = macroClusteringStatisticsDao.getGeneralStatistics();
 //        Map<Integer, List<TimeAndProcessedPerUnit>> mapOfTimeAndProcessedPerUnitList = new HashMap<>();
+        int numberOfTweets = 0;
         List<Integer> removalList = new ArrayList<>();
-        for (Map.Entry<Integer, MacroClusteringStatistics> statistic: statistics.entrySet())
-            if (macroClusteringStatisticsDao.getTimeAndProcessedPerUnitList(statistic.getKey()).size() <= 4)
+        for (Map.Entry<Integer, MacroClusteringStatistics> statistic: statistics.entrySet()) {
+            if (macroClusteringStatisticsDao.getTimeAndProcessedPerUnitList(statistic.getKey()).size() <= 3) {
                 removalList.add(statistic.getKey());
+            }
+            else {
+                numberOfTweets += statistic.getValue().getNumberOfDocuments();
+            }
+        }
         for (Integer removalId: removalList) {
             statistics.remove(removalId);
         }
         req.setAttribute("statistics", statistics);
         req.setAttribute("generalStatistics", generalStatistics);
+        req.setAttribute("numberOfClusteredTweets", numberOfTweets);
         req.setAttribute("numberOfClusters", statistics.entrySet().size());
         req.getRequestDispatcher("WEB-INF/index.jsp").forward(req, resp);
     }
